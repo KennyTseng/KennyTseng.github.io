@@ -241,8 +241,15 @@
 <p>有時遇到的檔案是ELF 32-bit可執行檔，但作業系統是64位元的會無法執行<br>
 根據<a href="https://askubuntu.com/questions/454253/how-to-run-32-bit-app-in-ubuntu-64-bit" target="_blank" rel="external">AskUbuntu這篇</a>安裝了幾個套件後便可以執行囉</p>
 <figure class="highlight llvm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo dpkg --<span class="keyword">add</span>-architecture <span class="keyword">i386</span></div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install libc<span class="number">6</span>:<span class="keyword">i386</span> libncurses<span class="number">5</span>:<span class="keyword">i386</span> libstdc++<span class="number">6</span>:<span class="keyword">i386</span></div></pre></td></tr></table></figure>
+<h2><span id="pip2-pip3">pip2、pip3</span></h2>
+<p>ubuntu安裝好後就有內建python2.7.12與python3.5.2了，但是沒有與之對應的pip，因此</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo apt-get <span class="keyword">install</span> python-pip</div><div class="line">sudo apt-<span class="keyword">get</span> <span class="keyword">install</span> python3-pip</div><div class="line">pip <span class="keyword">install</span> <span class="comment">--upgrade pip</span></div><div class="line">pip3 <span class="keyword">install</span> <span class="comment">--upgrade pip</span></div></pre></td></tr></table></figure>
+<h2><span id="pwntools">pwntools</span></h2>
+<p>將pwntools裝在python2，有試過裝在python3中，但是在from pwn import * 時會出錯</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip2 <span class="keyword">install</span> <span class="comment">--upgrade pwntools</span></div></pre></td></tr></table></figure>
 <h2><span id="未完待續">未完待續</span></h2>
-<p>未來有用到其他工具會更新在這裡</p>
+<p>未來有用到其他工具會更新在這裡<br>
+最後更新時間：2017/10/09</p>
 
                 
 
@@ -282,7 +289,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">CTF解題 虛擬機小準備</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">vim、git</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">peda</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">peda forked by angelboy</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">ncat</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">32位元執行檔</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">未完待續</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">CTF解題 虛擬機小準備</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">vim、git</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">peda</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">peda forked by angelboy</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">ncat</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">32位元執行檔</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">pip2、pip3</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.7.</span> <span class="toc-nav-text">pwntools</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.8.</span> <span class="toc-nav-text">未完待續</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -426,6 +433,15 @@
                     </li>
                 
 
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/kennytseng">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
                 
 
                 </ul>

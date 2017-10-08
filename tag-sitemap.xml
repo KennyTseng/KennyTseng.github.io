@@ -23,27 +23,6 @@
     </url>
 
     <url>
-        <loc>https://kennytseng.github.io/tags/CTF/</loc>
-        <lastmod>2017-10-05T16:31:54.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://kennytseng.github.io/tags/VM/</loc>
-        <lastmod>2017-10-05T16:31:54.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://kennytseng.github.io/tags/%E5%B7%A5%E5%85%B7/</loc>
-        <lastmod>2017-10-05T16:31:54.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://kennytseng.github.io/tags/Python/</loc>
         <lastmod>2017-10-05T16:53:30.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -53,6 +32,27 @@
     <url>
         <loc>https://kennytseng.github.io/tags/Pygame/</loc>
         <lastmod>2017-10-05T16:53:30.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kennytseng.github.io/tags/CTF/</loc>
+        <lastmod>2017-10-08T17:31:20.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kennytseng.github.io/tags/VM/</loc>
+        <lastmod>2017-10-08T17:31:20.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kennytseng.github.io/tags/%E5%B7%A5%E5%85%B7/</loc>
+        <lastmod>2017-10-08T17:31:20.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
