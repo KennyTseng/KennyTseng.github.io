@@ -245,8 +245,24 @@
 <p>ubuntu安裝好後就有內建python2.7.12與python3.5.2了，但是沒有與之對應的pip，因此</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo apt-get <span class="keyword">install</span> python-pip</div><div class="line">sudo apt-<span class="keyword">get</span> <span class="keyword">install</span> python3-pip</div><div class="line">pip <span class="keyword">install</span> <span class="comment">--upgrade pip</span></div><div class="line">pip3 <span class="keyword">install</span> <span class="comment">--upgrade pip</span></div></pre></td></tr></table></figure>
 <h2><span id="pwntools">pwntools</span></h2>
-<p>將pwntools裝在python2，有試過裝在python3中，但是在from pwn import * 時會出錯</p>
+<p>將pwntools裝在python2，有試過裝在python3中，但是在from pwn import * 時會報錯</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip2 <span class="keyword">install</span> <span class="comment">--upgrade pwntools</span></div></pre></td></tr></table></figure>
+<h2><span id="使用ssh連線至虛擬機">使用ssh連線至虛擬機</span></h2>
+<p>為了要能夠在本機電腦上使用ssh(Windows的putty、Mac可以直接用terminal)連線至虛擬機操作，需要在虛擬機上安裝openssh-server與做一些設定</p>
+<p>首先安裝openssh-server</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-<span class="builtin-name">get</span> install openssh-server</div></pre></td></tr></table></figure>
+<p>接著是一些網路與連接埠轉送的設定<br>
+打開VirtualBox上的設定 -&gt; 網路 -&gt; 「僅限主機」網路，新增一網路，網路卡位址使用預設的192.168.56.1即可<br>
+<img src="vb_setting_01.png" alt=""><br>
+接著在虛擬機中的terminal輸入<code>ifconfig</code>，查看網路位址，這裡是10.0.2.15<br>
+<img src="vm_setting_01.png" alt=""><br>
+然後去虛擬機的設定值 -&gt; 網路 -&gt; 介面卡，選擇附加到:NAT，並且在連接埠轉送中新增一條規則如圖所示，192.168.56.1:10022轉送至10.0.2.15:22<br>
+<img src="vm_setting_02.png" alt=""><br>
+最後重開虛擬機，以ssh連線至192.168.56.1:10022即可</p>
+<p>Mac的指令是</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ssh</span> 使用者名稱@<span class="keyword">192</span>.<span class="keyword">168</span>.<span class="keyword">56</span>.<span class="keyword">1</span> -p <span class="number">10022</span></div></pre></td></tr></table></figure>
+<p>若設定好了仍無法連線，有可能是虛擬機上沒有key，因此在虛擬機terminal上下指令產生一把</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -f /etc/ssh/ssh_host_rs<span class="built_in">a_key</span></div></pre></td></tr></table></figure>
 <h2><span id="未完待續">未完待續</span></h2>
 <p>未來有用到其他工具會更新在這裡<br>
 最後更新時間：2017/10/09</p>
@@ -289,7 +305,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">CTF解題 虛擬機小準備</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">vim、git</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">peda</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">peda forked by angelboy</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">ncat</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">32位元執行檔</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">pip2、pip3</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.7.</span> <span class="toc-nav-text">pwntools</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.8.</span> <span class="toc-nav-text">未完待續</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">CTF解題 虛擬機小準備</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">vim、git</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">peda</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">peda forked by angelboy</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">ncat</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">32位元執行檔</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">pip2、pip3</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.7.</span> <span class="toc-nav-text">pwntools</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.8.</span> <span class="toc-nav-text">使用ssh連線至虛擬機</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.9.</span> <span class="toc-nav-text">未完待續</span></a></li></ol></li></ol>
         
         </div>
       </aside>
